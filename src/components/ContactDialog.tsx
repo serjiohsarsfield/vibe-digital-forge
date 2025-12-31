@@ -11,7 +11,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Loader2 } from "lucide-react";
 
@@ -26,6 +25,7 @@ const ContactDialog = ({ children }: ContactDialogProps) => {
     name: "",
     email: "",
     message: "",
+    budget: "",
   });
   const { toast } = useToast();
 
@@ -33,30 +33,40 @@ const ContactDialog = ({ children }: ContactDialogProps) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const { error } = await supabase.from("leads").insert({
-      name: formData.name.trim(),
-      email: formData.email.trim(),
-      message: formData.message.trim() || null,
-    });
+    try {
+      const response = await fetch("https://n8n.scot-e.xyz/webhook-test/contact-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+          budget: formData.budget.trim(),
+        }),
+      });
 
-    setIsSubmitting(false);
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
 
-    if (error) {
+      toast({
+        title: "Message Sent",
+        description: "We'll be in touch within 24 hours.",
+      });
+
+      setFormData({ name: "", email: "", message: "", budget: "" });
+      setOpen(false);
+    } catch (error) {
       toast({
         variant: "destructive",
         title: "Transmission Failed",
-        description: "Unable to establish connection. Please try again.",
+        description: "Unable to send message. Please try again.",
       });
-      return;
+    } finally {
+      setIsSubmitting(false);
     }
-
-    toast({
-      title: "Protocol Initiated",
-      description: "We'll be in touch within 24 hours.",
-    });
-
-    setFormData({ name: "", email: "", message: "" });
-    setOpen(false);
   };
 
   return (
@@ -97,6 +107,16 @@ const ContactDialog = ({ children }: ContactDialogProps) => {
               placeholder="you@company.com"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              className="bg-background/50 border-glass-border focus:border-cyan"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="budget">Budget</Label>
+            <Input
+              id="budget"
+              placeholder="e.g. $5,000 - $10,000"
+              value={formData.budget}
+              onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
               className="bg-background/50 border-glass-border focus:border-cyan"
             />
           </div>
