@@ -2,6 +2,7 @@ import AnimatedBackground from "@/components/AnimatedBackground";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import SelectedWorks from "@/components/SelectedWorks";
+import { Toaster } from "@/components/ui/toaster";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
         <HeroSection />
         <SelectedWorks />
       </main>
+      <Toaster />
     </div>
   );
 };

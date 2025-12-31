@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { Play } from "lucide-react";
+import ContactDialog from "./ContactDialog";
 
 const HeroSection = () => {
   return (
@@ -36,10 +37,7 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-up"
           style={{ animationDelay: '0.4s' }}
         >
-          <Button variant="gradient" size="xl" className="group">
-            Start Your Build
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </Button>
+          <ContactDialog />
           <Button variant="hero" size="xl" className="group">
             <Play className="w-4 h-4" />
             View Portfolio
