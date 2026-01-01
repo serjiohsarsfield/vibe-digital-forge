@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -50,17 +50,18 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        glass: {
-          DEFAULT: "hsl(0 0% 100% / 0.05)",
-          border: "hsl(0 0% 100% / 0.1)",
+        // Sovereign Design System
+        midnight: {
+          DEFAULT: "hsl(var(--midnight))",
+          navy: "hsl(var(--midnight-navy))",
         },
-        violet: {
-          DEFAULT: "hsl(263 70% 58%)",
-          glow: "hsl(263 70% 58% / 0.3)",
+        slate: {
+          400: "hsl(var(--slate-400))",
+          900: "hsl(var(--slate-900))",
         },
-        cyan: {
-          DEFAULT: "hsl(187 92% 55%)",
-          glow: "hsl(187 92% 55% / 0.3)",
+        signal: {
+          green: "hsl(var(--signal-green))",
+          blue: "hsl(var(--signal-blue))",
         },
       },
       borderRadius: {
@@ -85,9 +86,9 @@ export default {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
-        shimmer: {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
+        "pulse-signal": {
+          "0%, 100%": { opacity: "1", transform: "scale(1)" },
+          "50%": { opacity: "0.7", transform: "scale(1.1)" },
         },
       },
       animation: {
@@ -95,11 +96,7 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-up": "fade-up 0.6s ease-out forwards",
         "fade-in": "fade-in 0.4s ease-out forwards",
-        shimmer: "shimmer 3s linear infinite",
-      },
-      backgroundImage: {
-        "gradient-primary": "linear-gradient(135deg, hsl(263 70% 58%) 0%, hsl(187 92% 55%) 100%)",
-        "gradient-primary-hover": "linear-gradient(135deg, hsl(263 70% 65%) 0%, hsl(187 92% 62%) 100%)",
+        "pulse-signal": "pulse-signal 2s ease-in-out infinite",
       },
     },
   },
