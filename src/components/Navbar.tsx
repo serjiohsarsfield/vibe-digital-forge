@@ -8,7 +8,7 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
-    { label: "Methodology", href: "#methodology" },
+    { label: "Methodology", href: "#stack" },
     { label: "Sovereign Work", href: "#work" },
     { label: "The Stack", href: "#stack" },
   ];
