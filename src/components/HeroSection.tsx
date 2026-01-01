@@ -28,7 +28,7 @@ const HeroSection = () => {
           className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 opacity-0 animate-fade-up"
           style={{ animationDelay: "0.3s" }}
         >
-          We build resilient, self-hosted software assets that you own completely.
+          At Scote Project, our vision is to give infrastructure sovereignty to anyone through governed, intelligent, and resilient applications.
         </p>
 
         {/* CTA Buttons */}
@@ -38,7 +38,7 @@ const HeroSection = () => {
         >
           <ContactDialog>
             <Button size="lg" className="group">
-              Initiate Architecture
+              Start Project
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </ContactDialog>

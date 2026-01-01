@@ -150,11 +150,11 @@ const ContactDialog = ({ children }: ContactDialogProps) => {
                 <SelectValue placeholder="Select budget range" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="under-5k">Under £5,000</SelectItem>
-                <SelectItem value="5k-10k">£5,000 - £10,000</SelectItem>
-                <SelectItem value="10k-25k">£10,000 - £25,000</SelectItem>
-                <SelectItem value="25k-50k">£25,000 - £50,000</SelectItem>
-                <SelectItem value="50k-plus">£50,000+</SelectItem>
+                <SelectItem value="under-2k">Under $2,000</SelectItem>
+                <SelectItem value="2k-5k">$2,000 - $5,000</SelectItem>
+                <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
+                <SelectItem value="10k-25k">$10,000 - $25,000</SelectItem>
+                <SelectItem value="25k-plus">$25,000+</SelectItem>
               </SelectContent>
             </Select>
           </div>

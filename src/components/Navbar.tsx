@@ -52,7 +52,7 @@ const Navbar = () => {
           <div className="hidden md:block">
             <ContactDialog>
               <Button variant="default" size="sm">
-                Initiate Architecture
+                Start Project
               </Button>
             </ContactDialog>
           </div>
@@ -83,7 +83,7 @@ const Navbar = () => {
                 </nav>
                 <ContactDialog>
                   <Button variant="default" size="lg" className="w-full mt-4">
-                    Initiate Architecture
+                    Start Project
                   </Button>
                 </ContactDialog>
               </div>
