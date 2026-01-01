@@ -31,9 +31,8 @@ const ContactDialog = ({ children }: ContactDialogProps) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    infrastructurePreference: "",
-    dataSensitivity: "",
     message: "",
+    budget: "",
   });
   const { toast } = useToast();
 
@@ -52,9 +51,8 @@ const ContactDialog = ({ children }: ContactDialogProps) => {
           body: JSON.stringify({
             name: formData.name.trim(),
             email: formData.email.trim(),
-            infrastructurePreference: formData.infrastructurePreference,
-            dataSensitivity: formData.dataSensitivity,
             message: formData.message.trim(),
+            budget: formData.budget,
           }),
         }
       );
@@ -64,23 +62,22 @@ const ContactDialog = ({ children }: ContactDialogProps) => {
       }
 
       toast({
-        title: "Protocol Initiated",
-        description: "Sovereignty report generation in progress. We'll be in touch within 24 hours.",
+        title: "Project Started",
+        description: "We've received your request. We'll be in touch within 24 hours.",
       });
 
       setFormData({
         name: "",
         email: "",
-        infrastructurePreference: "",
-        dataSensitivity: "",
         message: "",
+        budget: "",
       });
       setOpen(false);
     } catch (error) {
       toast({
         variant: "destructive",
-        title: "Transmission Failed",
-        description: "Unable to initiate protocol. Please try again.",
+        title: "Submission Failed",
+        description: "Unable to submit. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
@@ -125,13 +122,13 @@ const ContactDialog = ({ children }: ContactDialogProps) => {
           </div>
           <div className="space-y-2">
             <Label htmlFor="email" className="kicker">
-              Corporate Email
+              Email
             </Label>
             <Input
               id="email"
               type="email"
               required
-              placeholder="you@enterprise.com"
+              placeholder="you@company.com"
               value={formData.email}
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
@@ -140,53 +137,34 @@ const ContactDialog = ({ children }: ContactDialogProps) => {
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="infrastructure" className="kicker">
-              Infrastructure Preference
+            <Label htmlFor="budget" className="kicker">
+              Budget
             </Label>
             <Select
-              value={formData.infrastructurePreference}
+              value={formData.budget}
               onValueChange={(value) =>
-                setFormData({ ...formData, infrastructurePreference: value })
+                setFormData({ ...formData, budget: value })
               }
             >
               <SelectTrigger className="bg-background border-border">
-                <SelectValue placeholder="Select preference" />
+                <SelectValue placeholder="Select budget range" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="cloud">Private Cloud (VPS)</SelectItem>
-                <SelectItem value="on-prem">On-Premises</SelectItem>
-                <SelectItem value="hybrid">Hybrid Architecture</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="sensitivity" className="kicker">
-              Data Sensitivity Level
-            </Label>
-            <Select
-              value={formData.dataSensitivity}
-              onValueChange={(value) =>
-                setFormData({ ...formData, dataSensitivity: value })
-              }
-            >
-              <SelectTrigger className="bg-background border-border">
-                <SelectValue placeholder="Select level" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="standard">Standard Business Data</SelectItem>
-                <SelectItem value="sensitive">Sensitive / PII</SelectItem>
-                <SelectItem value="regulated">Regulated (HIPAA/GDPR)</SelectItem>
-                <SelectItem value="classified">Classified / NDA Required</SelectItem>
+                <SelectItem value="under-5k">Under £5,000</SelectItem>
+                <SelectItem value="5k-10k">£5,000 - £10,000</SelectItem>
+                <SelectItem value="10k-25k">£10,000 - £25,000</SelectItem>
+                <SelectItem value="25k-50k">£25,000 - £50,000</SelectItem>
+                <SelectItem value="50k-plus">£50,000+</SelectItem>
               </SelectContent>
             </Select>
           </div>
           <div className="space-y-2">
             <Label htmlFor="message" className="kicker">
-              Project Overview
+              Project Details
             </Label>
             <Textarea
               id="message"
-              placeholder="Describe your infrastructure requirements..."
+              placeholder="Tell us about your project..."
               rows={4}
               value={formData.message}
               onChange={(e) =>
@@ -204,11 +182,11 @@ const ContactDialog = ({ children }: ContactDialogProps) => {
             {isSubmitting ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin" />
-                Generating Report...
+                Submitting...
               </>
             ) : (
               <>
-                Generate Sovereignty Report
+                Start Project
                 <ArrowRight className="w-4 h-4" />
               </>
             )}

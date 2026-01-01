@@ -28,8 +28,7 @@ const HeroSection = () => {
           className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 opacity-0 animate-fade-up"
           style={{ animationDelay: "0.3s" }}
         >
-          Moving beyond ephemeral web design. We build resilient, self-hosted
-          software assets that you own completely.
+          We build resilient, self-hosted software assets that you own completely.
         </p>
 
         {/* CTA Buttons */}
@@ -43,7 +42,13 @@ const HeroSection = () => {
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </ContactDialog>
-          <Button variant="outline" size="lg">
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={() => {
+              document.getElementById("work")?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
             View Deployment Log
           </Button>
         </div>

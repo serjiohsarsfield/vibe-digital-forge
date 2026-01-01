@@ -28,6 +28,14 @@ const projects: Project[] = [
   },
   {
     id: 3,
+    title: "Premium Web Design",
+    status: "Production",
+    tag: "Design Excellence",
+    description:
+      "Aesthetic excellence combined with technical performance. Bespoke interfaces that elevate brand presence.",
+  },
+  {
+    id: 4,
     title: "Confidential Client",
     status: "Q1 2025 Architecture",
     tag: "Under NDA",

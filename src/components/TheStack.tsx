@@ -1,4 +1,4 @@
-import { Unlock, Database, Workflow } from "lucide-react";
+import { Unlock, Database, Workflow, Server, Bot } from "lucide-react";
 
 interface StackCardProps {
   icon: React.ReactNode;
@@ -39,6 +39,18 @@ const TheStack = () => {
       title: "Automated Governance",
       description:
         "Self-healing workflows that run 24/7 without manual oversight. Autonomous logic engines that scale with your business.",
+    },
+    {
+      icon: <Server className="w-6 h-6" />,
+      title: "Self-Hosted Hosting",
+      description:
+        "Full VPS management with Coolify. Your infrastructure, your servers, your rules. Complete control over deployments.",
+    },
+    {
+      icon: <Bot className="w-6 h-6" />,
+      title: "AI Agent Integration",
+      description:
+        "Intelligent automation powered by n8n and LLM integrations. Custom AI workflows that enhance productivity.",
     },
   ];
 
