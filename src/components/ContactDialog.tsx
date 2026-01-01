@@ -34,7 +34,7 @@ const ContactDialog = ({ children }: ContactDialogProps) => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://n8n.scot-e.xyz/webhook-test/contact-form", {
+      const response = await fetch("https://n8n.scot-e.xyz/webhook/contact-form", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
