@@ -1,4 +1,4 @@
-import { Unlock, Database, Workflow, Server, Bot } from "lucide-react";
+import { Unlock, Database, Workflow, Server, Bot, Shield } from "lucide-react";
 
 interface StackCardProps {
   icon: React.ReactNode;
@@ -51,6 +51,12 @@ const TheStack = () => {
       title: "AI Agent Integration",
       description:
         "Intelligent automation powered by n8n and LLM integrations. Custom AI workflows that enhance productivity.",
+    },
+    {
+      icon: <Shield className="w-6 h-6" />,
+      title: "DDoS Protection",
+      description:
+        "Enterprise-grade edge security via Cloudflare. Global CDN caching and automated threat mitigation.",
     },
   ];
 
