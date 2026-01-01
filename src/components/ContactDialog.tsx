@@ -131,13 +131,7 @@ const ContactDialog = ({ children }: ContactDialogProps) => {
               className="bg-background/50 border-glass-border focus:border-cyan resize-none"
             />
           </div>
-          <Button
-            type="submit"
-            variant="gradient"
-            size="lg"
-            className="w-full"
-            disabled={isSubmitting}
-          >
+          <Button type="submit" variant="gradient" size="lg" className="w-full" disabled={isSubmitting}>
             {isSubmitting ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin" />
