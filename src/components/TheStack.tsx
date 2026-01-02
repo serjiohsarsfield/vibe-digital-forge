@@ -91,16 +91,16 @@ const TheStack = () => {
         <div className="mt-12 pt-8 border-t border-border/50">
           <div className="flex flex-wrap items-center justify-center gap-6">
             <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-signal-green animate-pulse-signal" />
+              <span className="kicker">Operational Status: 99.9% Uptime | Scalable Infrastructure</span>
+            </div>
+            <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-signal-green" />
               <span className="kicker">Private Cloud Infrastructure</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-signal-green" />
               <span className="kicker">Sovereign Data Vault (PostgreSQL)</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-signal-green" />
-              <span className="kicker">Rapid Component Architecture</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-signal-green" />

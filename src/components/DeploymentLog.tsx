@@ -3,7 +3,7 @@ import { ArrowUpRight, Lock } from "lucide-react";
 interface Project {
   id: number;
   title: string;
-  status: "Production" | "Q1 2025 Architecture";
+  status: "Production" | "Building" | "Q1 2025 Architecture";
   tag: string;
   description: string;
   isConfidential?: boolean;
@@ -13,13 +13,21 @@ const projects: Project[] = [
   {
     id: 1,
     title: "FinTech Dashboard",
-    status: "Production",
+    status: "Building",
     tag: "Sovereign Data",
     description:
       "Real-time financial analytics platform with complete data residency compliance. Self-hosted PostgreSQL infrastructure.",
   },
   {
     id: 2,
+    title: "Autonomous CRM",
+    status: "Production",
+    tag: "AI-Powered",
+    description:
+      "Self-hosted lead qualification engine. AI-driven sentiment analysis, automated scoring, and instant persona-driven responses. Complete data sovereignty with zero third-party handoff.",
+  },
+  {
+    id: 3,
     title: "Logistics ERP",
     status: "Production",
     tag: "Private Cloud",
@@ -27,7 +35,7 @@ const projects: Project[] = [
       "Enterprise resource planning system deployed on client-owned VPS. Zero third-party data access.",
   },
   {
-    id: 3,
+    id: 4,
     title: "Premium Web Design",
     status: "Production",
     tag: "Design Excellence",
@@ -35,7 +43,7 @@ const projects: Project[] = [
       "Aesthetic excellence combined with technical performance. Bespoke interfaces that elevate brand presence.",
   },
   {
-    id: 4,
+    id: 5,
     title: "Confidential Client",
     status: "Q1 2025 Architecture",
     tag: "Under NDA",
@@ -52,7 +60,14 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project, className = "" }: ProjectCardProps) => {
   const isUpcoming = project.status === "Q1 2025 Architecture";
+  const isBuilding = project.status === "Building";
   const isConfidential = project.isConfidential;
+
+  const getStatusColor = () => {
+    if (isUpcoming) return "bg-primary";
+    if (isBuilding) return "bg-signal-orange";
+    return "bg-signal-green";
+  };
 
   return (
     <div
@@ -97,11 +112,11 @@ const ProjectCard = ({ project, className = "" }: ProjectCardProps) => {
         {/* Status */}
         <div className="flex items-center gap-2">
           <div
-            className={`w-2 h-2 rounded-full ${
-              isUpcoming ? "bg-primary" : "bg-signal-green"
-            } ${!isUpcoming ? "animate-pulse-signal" : ""}`}
+            className={`w-2 h-2 rounded-full ${getStatusColor()} ${!isUpcoming && !isBuilding ? "animate-pulse-signal" : ""}`}
           />
-          <span className="kicker">{project.status}</span>
+          <span className={`kicker ${isBuilding ? "text-signal-orange" : ""}`}>
+            {project.status.toUpperCase()}
+          </span>
         </div>
       </div>
     </div>
