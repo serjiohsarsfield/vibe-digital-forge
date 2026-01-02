@@ -28,7 +28,7 @@ const HeroSection = () => {
           className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 opacity-0 animate-fade-up"
           style={{ animationDelay: "0.3s" }}
         >
-          At Scote Project, our vision is to give infrastructure sovereignty to anyone through governed, intelligent, and resilient applications.
+          Scote Project's vision is to give infrastructure sovereignty to anyone through governed, intelligent, and resilient applications.
         </p>
 
         {/* CTA Buttons */}
