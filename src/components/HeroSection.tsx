@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Bot } from "lucide-react";
 import ContactDialog from "./ContactDialog";
 
 const HeroSection = () => {
@@ -81,10 +81,8 @@ const HeroSection = () => {
             </div>
             <div className="kicker mt-1">Data Security</div>
           </div>
-          <div>
-            <div className="text-2xl sm:text-3xl font-bold text-primary">
-              Deep
-            </div>
+          <div className="flex flex-col items-center">
+            <Bot className="w-7 h-7 sm:w-8 sm:h-8 text-primary mb-1" />
             <div className="kicker mt-1">Native AI Integration</div>
           </div>
         </div>
