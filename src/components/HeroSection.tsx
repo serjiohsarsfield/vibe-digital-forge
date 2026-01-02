@@ -75,17 +75,17 @@ const HeroSection = () => {
             </div>
             <div className="kicker mt-1">Sovereign Deployments</div>
           </div>
-          <div>
+        <div>
             <div className="text-2xl sm:text-3xl font-bold text-primary">
               100%
             </div>
-            <div className="kicker mt-1">Client Ownership</div>
+            <div className="kicker mt-1">Data Security</div>
           </div>
           <div>
             <div className="text-2xl sm:text-3xl font-bold text-primary">
-              Zero
+              Deep
             </div>
-            <div className="kicker mt-1">Vendor Lock-in</div>
+            <div className="kicker mt-1">Native AI Integration</div>
           </div>
         </div>
       </div>

@@ -61,6 +61,7 @@ export default {
         },
         signal: {
           green: "hsl(var(--signal-green))",
+          orange: "hsl(var(--signal-orange))",
           blue: "hsl(var(--signal-blue))",
         },
       },
